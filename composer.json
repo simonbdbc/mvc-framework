@@ -1,0 +1,14 @@
+
+{
+    "name": "mvc/framework",
+    "require": {
+        "mustache/mustache": "~2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\Controller\\": "core/controller/",
+            "Core\\Model\\": "core/model/",        
+            "Modules\\Salarie\\Controller\\": "modules/salarie/controller/"
+        }
+    }
+}
