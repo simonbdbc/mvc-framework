@@ -1,10 +1,10 @@
 <?php
-    namespace Model;
+    namespace Modules\Salarie\Model;
     use Core\Model\Model as Model;
 
-    class Page extends Model
+    class SalarieModel extends Model
     {
-        protected $tableName = "sections";
+        protected $tableName = "salaries";
 
         function __construct()
         {

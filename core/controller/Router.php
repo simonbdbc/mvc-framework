@@ -4,7 +4,7 @@ use Core\Controller\Dispatcher as Dispatcher;
 
 class Router
 {
-    private $moduleDirectory = "modules/";
+    // private $moduleDirectory = "modules/";
     
     private function trimUri($uri)
     {
@@ -29,7 +29,7 @@ class Router
         $sAction = (count($aURI) > 1) ? $aURI[1] : '';
 
         if ($sModule == '') {
-            if (count(scandir($this->moduleDirectory)) > 2 && count($GLOBALS['conf']->app_modules) > 0) {
+            if (count(scandir($GLOBALS['conf']->module_directory)) > 2 && count($GLOBALS['conf']->app_modules) > 0) {
                 $sModule = $GLOBALS['conf']->app_modules;
                 $sModule = array_keys($sModule);
                 $sModule = $sModule[0];
@@ -43,24 +43,23 @@ class Router
             $sAction = 'displayPage';
         }
         
-        if ($sModule != 'home' && count(scandir($this->moduleDirectory)) > 0 ) {
+        if ($sModule != 'home' && count(scandir($GLOBALS['conf']->module_directory)) > 0 ) {
 
+            $sRouteModule = $GLOBALS['conf']->module_directory.$sModule;
+            
             $sController = ucfirst($sModule).'Controller';
-            $sRouteModule = $this->moduleDirectory.$sModule.'/controller/'.ucfirst($sModule).'Controller.php';
+            $sRouteController = $sRouteModule.'/controller/'.ucfirst($sModule).'Controller.php';
             $sUseController = 'Modules\\'.$sModule.'\\Controller\\' . $sController;
-            include_once($sRouteModule);
+            include_once($sRouteController);
             $dispatcher = new $sUseController();
-            // var_dump($dispatcher);
         } else {
             $dispatcher = new Dispatcher();
         }
 
 
         // var_dump($sModule, $sAction);
-        if(method_exists($dispatcher,$sAction))
-        {
-
-            $dispatcher->$sAction($sModule, $sAction = '');
+        if(method_exists($dispatcher,$sAction)) {
+            $dispatcher->$sAction($sModule);
         } else {
             $dispatcher->code404();
         }       

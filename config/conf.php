@@ -8,6 +8,7 @@ return (object) [
         'appName'=>"App Name",
         'appURL'=> "http://yourURL/#/",
     ],
+    'module_directory' => 'modules/',
     // le premier est le module par default.
     // nom du module => nom utilisable.
     'app_modules' => [

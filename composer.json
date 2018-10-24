@@ -7,7 +7,8 @@
         "psr-4": {
             "Core\\Controller\\": "core/controller/",
             "Core\\Model\\": "core/model/",        
-            "Modules\\Salarie\\Controller\\": "modules/salarie/controller/"
+            "Modules\\Salarie\\Controller\\": "modules/salarie/controller/",
+            "Modules\\Salarie\\Model\\": "modules/salarie/model/"
         }
     }
 }

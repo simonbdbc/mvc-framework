@@ -30,22 +30,22 @@
         {
             $data = array();
 
-           if (count($column) == 0){
-               $selectColumn = "";
-               for ($i=0; $i < count($column); $i++) {
-                   if($i == (count($column) - 1)) {
-                       $selectColumn .= $column[$i];
-                    } else {
-                        $selectColumn .= $column[$i] . ', ';
-                    }
-                }
-                $query = "SELECT ".$selectColumn." FROM " . $this->tableName;
-            } else {
+        //    if (count($column) == 0){
+        //        $selectColumn = "";
+        //        for ($i=0; $i < count($column); $i++) {
+        //            if($i == (count($column) - 1)) {
+        //                $selectColumn .= $column[$i];
+        //             } else {
+        //                 $selectColumn .= $column[$i] . ', ';
+        //             }
+        //         }
+        //         $query = "SELECT ".$selectColumn." FROM " . $this->tableName;
+        //     } else {
                 $query = "SELECT * FROM " . $this->tableName;
-            }
+            // }
             
+            // var_dump($query);die;
             $request = $this->dbConnec->prepare($query);
-            
             if($request->execute()){       
                 while($row = $request->fetch(\PDO::FETCH_OBJ)) {   
                     $data[] = $row;
