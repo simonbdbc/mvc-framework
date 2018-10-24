@@ -7,22 +7,20 @@ class SalarieController extends Dispatcher
 {
 
     public function add($sModule, $sAction = '')
-    { 
-        var_dump('ici');
-        $view = new View();
-
-        $view->renderView('',[
-            "{{TITLE}}" => ucfirst($sModule)
-        ], false);
+    {
+        var_dump('edit');
+        
     }
 
     public function edit($sModule, $sAction = '')
     {
+        var_dump('edit');
         
     }
 
     public function update($sModule, $sAction = '')
     {
+        var_dump('update');
         
     }
 }

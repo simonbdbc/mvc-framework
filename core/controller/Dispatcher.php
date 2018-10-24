@@ -8,23 +8,13 @@ class Dispatcher
 {
     private $viewDirectory = "view/";
 
-    public function homePage($sModule, $sAction = '')
+    public function displayPage($sModule, $sAction = '')
     {
         $view = new View();
 
-        $view->renderView('',[
-            "{{TITLE}}" => ucfirst($sModule)
+        $view->renderView($sModule,[
+            "{{TITLE}}" => ucfirst($GLOBALS['conf']->app_modules[$sModule])
         ], false);
-    }
-
-    public function editView($uri)
-    {
-        
-    }
-
-    public function updateView($uri)
-    {
-        
     }
 
     public function code404()
