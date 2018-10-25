@@ -13,6 +13,11 @@ Chaque projet avec notre framework contient un dossier Core qui est le coeur du 
 
 Notre framework n’est pas livré avec un ORM.
 
+Un script make.sh permet de générer une architecture de module prêt à l'emploi :
+Avec la commande suivante :
+```
+sh make.sh module [nom du module]
+```
 
 ## Arborescence
 
@@ -101,3 +106,4 @@ Contient le model pour le module salarié.
 
 Dossier Salarie\View
 Contient les layouts et les modification de View pour le module;
+
