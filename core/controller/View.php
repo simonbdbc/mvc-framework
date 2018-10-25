@@ -14,7 +14,7 @@
             // inclusion du menu dans le main.html            
             $sHtml = str_replace("{{MENU}}", $this->loadMenu(), $sHtml);
 
-            // $sHtml = str_replace("{{MODULE-LAYOUT}}", $this->loadModule($sModule, $aData), $sHtml);
+            $sHtml = str_replace("{{MODULE-LAYOUT}}", $this->loadModule($sModule, $aData), $sHtml);
             
             foreach ($values as $key => $value) {
                 $sHtml = str_replace($key, $value, $sHtml);

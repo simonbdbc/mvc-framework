@@ -8,7 +8,7 @@ class SalarieController extends Dispatcher
 
     public function add($sModule, $sAction = '')
     {
-        var_dump('edit');
+        var_dump('add');
         
     }
 
